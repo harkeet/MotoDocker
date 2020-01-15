@@ -1,0 +1,1 @@
+docker run -it --rm --name moto-poller -v "$PWD":/usr/src/motopoller -w /usr/src/motopoller  perl:5.20 perl MotoPoll.pl
