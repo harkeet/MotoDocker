@@ -1,5 +1,5 @@
 FROM ubuntu:14.04
-MAINTAINER Harkeet Bajaj <harkeet.bajaj@gmail.com>
+LABEL maintainer="Harkeet Bajaj <harkeet.bajaj@gmail.com>"
 
 ENV DEBIAN_FRONTEND=noninteractive LANG=en_US.UTF-8 LC_ALL=C.UTF-8 LANGUAGE=en_US.UTF-8
 
