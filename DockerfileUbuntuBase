@@ -1,5 +1,5 @@
 FROM ubuntu:14.04
-LABEL maintainer="Harkeet Bajaj <harkeet.bajaj@gmail.com>"
+MAINTAINER Harkeet Bajaj <harkeet.bajaj@gmail.com>
 
 ENV DEBIAN_FRONTEND=noninteractive LANG=en_US.UTF-8 LC_ALL=C.UTF-8 LANGUAGE=en_US.UTF-8
 
@@ -36,11 +36,10 @@ RUN cpanm warnings \
 # Install related DB modules
 RUN apt-get install --yes \
  libdbd-mysql \
- libdbd-mysql-perl \
- libdbd-pgsql \
- perl-DBD-MySQL \
- perl-Net-SNMP
+ libdbd-mysql-perl
 
+# BP2
+RUN apt-get install libnet-snmp-perl
 
 # Cleaning up apt to save some space
 RUN apt-get clean
@@ -49,4 +48,4 @@ RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 COPY [ "./MotoPoll.pl", "/app/MotoPoll.pl" ]
 RUN [ "chmod", "+x",  "/app/MotoPoll.pl" ]
 
-ENTRYPOINT [ "/app/MotoPoll.pl" ]
+ENTRYPOINT [ "/usr/bin/perl /app/MotoPoll.pl" ]
