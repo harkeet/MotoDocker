@@ -1,1 +1,3 @@
 docker run -it --rm --name moto-poller -v "$PWD":/usr/src/motopoller -w /usr/src/motopoller  perl:5.20 perl MotoPoll.pl
+
+Perl Threaded can be looked into as the normal Perl image does not support thread
