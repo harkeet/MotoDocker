@@ -5,7 +5,7 @@ services:
     image: mysql:5.7
     environment:
       MYSQL_ROOT_PASSWORD: motoroot
-      MYSQL_ALLOW_EMPTY_PASSWORD=yes
+      MYSQL_ALLOW_EMPTY_PASSWORD: yes
       MYSQL_USER: motouser
       MYSQL_PASSWORD: motopass
     ports:
