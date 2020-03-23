@@ -10,3 +10,15 @@ services:
       MYSQL_PASSWORD: motopass
     ports:
       - "9906:3306"
+    volumes:
+      - my-db:/var/lib/mysql
+
+  perl:
+    build:
+      context: ./perl_docker
+      dockerfile: Dockerfile
+    depends_on:
+      - mysql
+
+volumes:
+  db_data: ./mysql_data
