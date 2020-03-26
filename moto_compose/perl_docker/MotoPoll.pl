@@ -26,10 +26,11 @@
 #		v 5.3	10/10/2013	Ulysses Cruz	Modified polling timeouts and thread counts to provide more efficient use during internet polling.
 #		v 5.4	11/25/2014	Ulysses Cruz	Allow short notes to be assigned to each device entry, which will be included in any trap sent for that device.
 #		v 5.5	12/1/2014	Ulysses Cruz	Corrected bugs with new database creation related to the new config versioning code.
+#		v 5.6	26/03/2020	Harkeet Bajaj	Modified for Docker Compose
 #
-# �2012 Ulysses Cruz, Motorola Solutions Inc.
+# �2020 Harkeet Bajaj, Insight Inc.
 ###############################################################################
-my $version  = '5.4';
+my $version  = '5.6';
 
 $| = 1; # force buffer flush on each write
 
@@ -60,9 +61,9 @@ my $device_total :shared = 0;
 my $switch_total :shared = 0;
 my $ap_total :shared = 0;
 my $global_thread_limit = int(`cat /proc/sys/kernel/threads-max` / 256);
-my $mysql_host = 'localhost';
+my $mysql_host = 'mysql';
 my $mysql_user = 'root';
-my $mysql_pass = '';
+my $mysql_pass = 'motoroot';
 
 # Create control queues
 my $device_known = Thread::Queue->new();

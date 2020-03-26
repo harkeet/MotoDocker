@@ -5,20 +5,19 @@ services:
     image: mysql:5.7
     environment:
       MYSQL_ROOT_PASSWORD: motoroot
-      MYSQL_ALLOW_EMPTY_PASSWORD: yes
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
       MYSQL_USER: motouser
       MYSQL_PASSWORD: motopass
     ports:
       - "9906:3306"
     volumes:
-      - my-db:/var/lib/mysql
+      - ./mysql_data:/var/lib/mysql
 
-  perl:
+  moto_poll:
+    container_name: motocontainer
+    hostname: motohost 
     build:
       context: ./perl_docker
       dockerfile: Dockerfile
     depends_on:
       - mysql
-
-volumes:
-  db_data: ./mysql_data
